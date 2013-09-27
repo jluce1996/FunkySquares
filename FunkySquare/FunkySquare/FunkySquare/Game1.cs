@@ -20,6 +20,7 @@ namespace FunkySquare
         SpriteBatch spriteBatch;
         Texture2D square;
 
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -47,8 +48,9 @@ namespace FunkySquare
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            square = Content.Load<Texture2D>("square");
+            
 
-            Content.Load<Texture2D>;
         }
 
         /// <summary>
@@ -76,19 +78,37 @@ namespace FunkySquare
             base.Update(gameTime);
         }
 
-        public void DrawCheckerboard ()
+        public void DrawCheckerboard()
         {
-            for (int x = 0; x < this.Window.ClientBounds.Width; x+= 25)
+            for (int x = 0; x < this.Window.ClientBounds.Width/25; x++)
             {
-                for (int y = 0; y < this.Window.ClientBounds.Height; y+= 25)
+                for (int y = 0; y < this.Window.ClientBounds.Height/25; y++)
                 {
-
-                    spriteBatch.Draw(square, new Vector2(x, y), Color.Azure);
-
+                    if((x + y) % 2 == 0)
+                    {
+                    spriteBatch.Draw(square, new Vector2(x*25, y*25), Color.Red);
+                    }
+                    else
+                    {
+                    spriteBatch.Draw(square, new Vector2(x * 25, y * 25), Color.White);
+                    }
                 }
             }
+        }
 
-           
+        public void DrawRainbow()
+        {
+            for (int x = 0; x < this.Window.ClientBounds.Width / 25; x++)
+            {
+                for (int y = 0; y < this.Window.ClientBounds.Height / 25; y++)
+                {
+                    if (x % 25 == 0)
+                    {
+                        spriteBatch.Draw(square, new Vector2(x * 25, y * 25), Color.Red);
+                    }
+                    
+                }
+            }
 
 
         }
@@ -101,11 +121,15 @@ namespace FunkySquare
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
+            spriteBatch.Begin();
+
             // TODO: Add your drawing code here
             // DrawBlankScreen();
-            DrawCheckerboard();
-            // DrawRainbow();
+            //DrawCheckerboard();
+            DrawRainbow();
             // DrawSquares();
+
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }
