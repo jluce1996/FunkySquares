@@ -98,18 +98,28 @@ namespace FunkySquare
 
         public void DrawRainbow()
         {
-            for (int x = 0; x < this.Window.ClientBounds.Width / 25; x++)
-            {
-                for (int y = 0; y < this.Window.ClientBounds.Height / 25; y++)
-                {
-                    if (x % 25 == 0)
-                    {
-                        spriteBatch.Draw(square, new Vector2(x * 25, y * 25), Color.Red);
-                    }
-                    
-                }
+            int i;
+            int x = 0;
+            int y = 0;
+            Rectangle Rainbow = new Rectangle(x, y, 115, 800);
+            for (i = 0; i <= 6; i++)  
+            {   
+            if (i == 0)
+                spriteBatch.Draw(square, Rainbow, Color.Red);
+            else if (i == 1)
+                spriteBatch.Draw(square, Rainbow, Color.Orange);
+            else if (i == 2)
+                spriteBatch.Draw(square, Rainbow, Color.Yellow);
+            else if (i == 3)
+                spriteBatch.Draw(square, Rainbow, Color.Green);
+            else if (i == 4)
+                spriteBatch.Draw(square, Rainbow, Color.Blue);
+            else if (i == 5)
+                spriteBatch.Draw(square, Rainbow, Color.Indigo);
+            else if (i == 6)
+                spriteBatch.Draw(square, Rainbow, Color.Violet);          
+            Rainbow.X += 115;   
             }
-
 
         }
 
