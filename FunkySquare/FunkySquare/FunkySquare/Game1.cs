@@ -123,6 +123,21 @@ namespace FunkySquare
 
         }
 
+        public void DrawSquares()
+        {
+            int i;
+            Random random = new Random();
+           if(i = 0; i < 100; i ++)
+            {
+            int randx = random.X(0, 800)
+
+            }
+
+
+
+
+
+        }
         /// <summary>
         /// This is called when the game should draw itself.
         /// </summary>
