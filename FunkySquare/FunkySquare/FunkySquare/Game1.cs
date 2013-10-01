@@ -125,14 +125,17 @@ namespace FunkySquare
 
         public void DrawSquares()
         {
-            int i;
-            Random random = new Random();
-           if(i = 0; i < 100; i ++)
+            
+            
+           for( int i = 0; i < 100; i ++)
             {
-            int randx = random.X(0, 800)
-
+               Random random = new Random();
+                int randX = random.Next(0, 800);
+                int randY = random.Next(0, 600);
+                Rectangle funkysquare = new Rectangle(randX, randY, 10, 10);
+                spriteBatch.Draw(square, funkysquare, Color.Black);
             }
-
+            
 
 
 
@@ -144,15 +147,15 @@ namespace FunkySquare
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.White);
 
             spriteBatch.Begin();
 
             // TODO: Add your drawing code here
             // DrawBlankScreen();
             //DrawCheckerboard();
-            DrawRainbow();
-            // DrawSquares();
+            //DrawRainbow();
+             DrawSquares();
 
             spriteBatch.End();
 
